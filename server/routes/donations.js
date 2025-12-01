@@ -1,5 +1,5 @@
 import express from 'express';
-import Donation from '../models/Donation.js';
+import { Donation } from '../models/Donation.js';
 
 const router = express.Router();
 
@@ -59,4 +59,5 @@ router.get('/user/:email', async (req, res) => {
     }
 });
 
+export { router };
 export default router;

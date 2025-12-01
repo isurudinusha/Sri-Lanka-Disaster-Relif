@@ -3,8 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import donationRoutes from '../../server/routes/donations.js';
-import authRoutes from '../../server/routes/auth.js';
+import { router as donationRoutes } from '../../server/routes/donations.js';
+import { router as authRoutes } from '../../server/routes/auth.js';
 
 dotenv.config();
 
@@ -27,16 +27,8 @@ async function connectToDatabase() {
     return connection;
 }
 
-// Routes - Mount at /api since the redirect will pass the full path
-// Or if using /api/* -> /.netlify/functions/api/*, the path seen by express might be /api/donations or /donations
-// To be safe, we can mount on a router that handles both or check the path.
-// Usually serverless-http with the redirect /.netlify/functions/api/:splat strips the function name but keeps the splat.
-// So /api/donations -> /.netlify/functions/api/donations. 
-// The event.path will be /.netlify/functions/api/donations.
-// serverless-http usually strips the /.netlify/functions/api prefix if configured, or we can just mount at /api/donations.
-
-// Let's try mounting at /api to be safe, or use a router.
 const router = express.Router();
+
 router.use('/donations', donationRoutes);
 router.use('/auth', authRoutes);
 
@@ -47,11 +39,12 @@ app.use('/api', router);
 app.use('/', router);
 
 
+const httpHandler = serverless(app);
+
 export const handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
 
     await connectToDatabase();
 
-    const serverlessHandler = serverless(app);
-    return serverlessHandler(event, context);
+    return httpHandler(event, context);
 };
