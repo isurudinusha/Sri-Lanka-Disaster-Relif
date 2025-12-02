@@ -46,14 +46,14 @@ const Login = ({ onLogin }) => {
             alignItems: 'center',
             justifyContent: 'center',
             background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-            padding: '20px'
+            padding: '20px 15px'
         }}>
             <div className="card glass fade-in" style={{ maxWidth: '400px', width: '100%' }}>
-                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <h2 style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                    <h2 style={{ color: 'var(--primary)', marginBottom: '0.5rem', fontSize: 'clamp(1.5rem, 4vw, 1.75rem)' }}>
                         {isSignUp ? 'Create Account' : 'Welcome Back'}
                     </h2>
-                    <p style={{ color: 'var(--text-secondary)' }}>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>
                         {isSignUp ? 'Sign up to start donating' : 'Login to manage your donations'}
                     </p>
                 </div>
@@ -112,7 +112,7 @@ const Login = ({ onLogin }) => {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+                    <button type="submit" className="btn btn-primary" style={{ width: '100%', minHeight: '48px' }}>
                         {isSignUp ? 'Sign Up' : 'Sign In'}
                     </button>
                 </form>
