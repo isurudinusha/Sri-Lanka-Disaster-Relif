@@ -61,7 +61,7 @@ const DonationForm = () => {
     };
 
     return (
-        <div className="container fade-in" style={{ padding: '40px 20px' }}>
+        <div className="container fade-in spacing-mobile-reduce">
             <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <div style={{ marginBottom: '2rem', borderBottom: '1px solid #eee', paddingBottom: '1rem' }}>
                     <h2 style={{ color: 'var(--primary)' }}>New Donation Entry</h2>
@@ -69,7 +69,7 @@ const DonationForm = () => {
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="form-row">
                         <div className="form-group">
                             <label className="form-label">Donor Name</label>
                             <input
@@ -95,12 +95,16 @@ const DonationForm = () => {
                         </div>
                     </div>
 
-                    <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: 'var(--radius)', marginBottom: '2rem' }}>
-                        <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>Add Items</h3>
+                    <div style={{ background: '#f8f9fa', padding: 'clamp(15px, 3vw, 20px)', borderRadius: 'var(--radius)', marginBottom: '2rem' }}>
+                        <h3 style={{ fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', marginBottom: '1rem', color: 'var(--text-primary)' }}>Add Items</h3>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr auto', gap: '10px', alignItems: 'end' }}>
-                            <div className="form-group" style={{ marginBottom: 0 }}>
-                                <label className="form-label" style={{ fontSize: '0.9rem' }}>Item Description</label>
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+                            gap: '10px'
+                        }}>
+                            <div className="form-group" style={{ marginBottom: 0, gridColumn: 'span 2' }}>
+                                <label className="form-label" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Item Description</label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -111,7 +115,7 @@ const DonationForm = () => {
                             </div>
 
                             <div className="form-group" style={{ marginBottom: 0 }}>
-                                <label className="form-label" style={{ fontSize: '0.9rem' }}>Weight (kg)</label>
+                                <label className="form-label" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Weight (kg)</label>
                                 <input
                                     type="number"
                                     className="form-control"
@@ -122,7 +126,7 @@ const DonationForm = () => {
                             </div>
 
                             <div className="form-group" style={{ marginBottom: 0 }}>
-                                <label className="form-label" style={{ fontSize: '0.9rem' }}>Quantity</label>
+                                <label className="form-label" style={{ fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Quantity</label>
                                 <input
                                     type="number"
                                     className="form-control"
@@ -134,11 +138,11 @@ const DonationForm = () => {
 
                             <button
                                 type="button"
-                                className="btn btn-secondary"
+                                className="btn btn-secondary btn-mobile-full"
                                 onClick={handleAddItem}
-                                style={{ height: '48px' }}
+                                style={{ gridColumn: window.innerWidth <= 480 ? 'span 2' : 'auto', alignSelf: 'end' }}
                             >
-                                Add
+                                Add Item
                             </button>
                         </div>
                     </div>
@@ -146,7 +150,7 @@ const DonationForm = () => {
                     {formData.items.length > 0 && (
                         <div style={{ marginBottom: '2rem' }}>
                             <h4 style={{ marginBottom: '1rem' }}>Items List</h4>
-                            <div style={{ border: '1px solid #eee', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+                            <div className="table-wrapper">
                                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                                     <thead style={{ background: '#f8f9fa' }}>
                                         <tr>
@@ -170,7 +174,7 @@ const DonationForm = () => {
                     )}
 
                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <button type="submit" className="btn btn-primary" style={{ minWidth: '200px' }}>
+                        <button type="submit" className="btn btn-primary btn-mobile-full" style={{ minWidth: 'min(200px, 100%)' }}>
                             Submit Donation
                         </button>
                     </div>

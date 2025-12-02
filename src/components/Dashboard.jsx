@@ -28,87 +28,104 @@ const Dashboard = ({ onStartDonating }) => {
     }, []);
 
     return (
-        <div className="container fade-in" style={{ padding: '40px 20px' }}>
+        <div className="container fade-in spacing-mobile-reduce">
             {/* Hero Section */}
             <div style={{
                 textAlign: 'center',
-                marginBottom: '60px',
-                padding: '60px 20px',
+                marginBottom: '40px',
+                padding: '40px 20px',
                 background: 'linear-gradient(135deg, rgba(0,119,182,0.1) 0%, rgba(144,224,239,0.1) 100%)',
-                borderRadius: '24px'
+                borderRadius: '20px'
             }}>
                 <img
                     src="/logo.png"
                     alt="Relief Hub Logo"
                     style={{
-                        width: '120px',
-                        height: '120px',
-                        marginBottom: '30px',
+                        width: 'min(120px, 25vw)',
+                        height: 'min(120px, 25vw)',
+                        marginBottom: '20px',
                         borderRadius: '20px',
                         boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                         objectFit: 'cover'
                     }}
                 />
                 <h1 style={{
-                    fontSize: '3.5rem',
+                    fontSize: 'clamp(2rem, 5vw, 3.5rem)',
                     fontWeight: '800',
                     background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    marginBottom: '20px'
+                    marginBottom: '15px',
+                    lineHeight: '1.2'
                 }}>
                     UK to Sri Lanka Relief Hub
                 </h1>
-                <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 30px' }}>
+                <p style={{
+                    fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)',
+                    color: 'var(--text-secondary)',
+                    maxWidth: '600px',
+                    margin: '0 auto 25px',
+                    lineHeight: '1.6'
+                }}>
                     Join our mission to send essential aid to Sri Lanka. Track our progress and contribute to the cause.
                 </p>
-                <button className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '16px 32px' }} onClick={onStartDonating}>
+                <button
+                    className="btn btn-primary btn-mobile-full"
+                    style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', padding: '16px 32px' }}
+                    onClick={onStartDonating}
+                >
                     Start Donating Now
                 </button>
             </div>
 
             {/* Stats Grid */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: '24px',
-                marginBottom: '60px'
-            }}>
+            <div className="responsive-grid responsive-grid-3" style={{ marginBottom: '40px' }}>
                 {stats.map((stat, index) => (
-                    <div key={index} className="card" style={{ textAlign: 'center', padding: '30px' }}>
+                    <div key={index} className="card" style={{ textAlign: 'center', padding: 'clamp(1rem, 3vw, 1.875rem)' }}>
                         <div style={{
-                            fontSize: '3rem',
+                            fontSize: 'clamp(2rem, 5vw, 3rem)',
                             marginBottom: '10px',
                             background: '#f0f9ff',
-                            width: '80px',
-                            height: '80px',
-                            lineHeight: '80px',
+                            width: 'min(80px, 20vw)',
+                            height: 'min(80px, 20vw)',
+                            lineHeight: 'min(80px, 20vw)',
                             borderRadius: '50%',
-                            margin: '0 auto 20px'
+                            margin: '0 auto 15px'
                         }}>
                             {stat.icon}
                         </div>
-                        <h3 style={{ fontSize: '2.5rem', color: stat.color, marginBottom: '5px' }}>{stat.value}</h3>
-                        <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>{stat.label}</p>
+                        <h3 style={{
+                            fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                            color: stat.color,
+                            marginBottom: '5px',
+                            wordBreak: 'break-word'
+                        }}>{stat.value}</h3>
+                        <p style={{
+                            color: 'var(--text-secondary)',
+                            fontWeight: '500',
+                            fontSize: 'clamp(0.85rem, 2vw, 1rem)'
+                        }}>{stat.label}</p>
                     </div>
                 ))}
             </div>
 
             {/* Recent Activity */}
             <div className="card">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <h2 style={{ color: 'var(--text-primary)' }}>Recent Contributions</h2>
-                    <span style={{ color: 'var(--success)', fontSize: '0.9rem', fontWeight: '600' }}>● Live Updates</span>
+                <div className="stack-mobile" style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <h2 style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.25rem, 3vw, 1.5rem)' }}>Recent Contributions</h2>
+                    <span style={{ color: 'var(--success)', fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', fontWeight: '600' }}>● Live Updates</span>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {recentDonations.length > 0 ? recentDonations.map((donation, index) => (
                         <div key={index} style={{
                             display: 'flex',
+                            flexWrap: 'wrap',
                             alignItems: 'center',
-                            padding: '15px',
+                            padding: 'clamp(12px, 2vw, 15px)',
                             background: '#f8f9fa',
                             borderRadius: '12px',
+                            gap: '12px',
                             transition: 'transform 0.2s',
                             cursor: 'default'
                         }}
@@ -123,22 +140,36 @@ const Dashboard = ({ onStartDonating }) => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                marginRight: '15px',
-                                fontSize: '1.2rem'
+                                fontSize: '1.2rem',
+                                flexShrink: 0
                             }}>
                                 📍
                             </div>
-                            <div style={{ flex: 1 }}>
-                                <h4 style={{ color: 'var(--text-primary)', marginBottom: '2px' }}>{donation.location}</h4>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{donation.items}</p>
+                            <div style={{ flex: '1 1 200px', minWidth: '0' }}>
+                                <h4 style={{
+                                    color: 'var(--text-primary)',
+                                    marginBottom: '2px',
+                                    fontSize: 'clamp(0.95rem, 2.5vw, 1rem)',
+                                    wordBreak: 'break-word'
+                                }}>{donation.location}</h4>
+                                <p style={{
+                                    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                                    color: 'var(--text-secondary)',
+                                    wordBreak: 'break-word',
+                                    margin: 0
+                                }}>{donation.items}</p>
                             </div>
-                            <div style={{ textAlign: 'right' }}>
-                                <div style={{ fontWeight: 'bold', color: 'var(--primary)' }}>{donation.weight}</div>
-                                <div style={{ fontSize: '0.8rem', color: '#aaa' }}>{donation.time}</div>
+                            <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                                <div style={{
+                                    fontWeight: 'bold',
+                                    color: 'var(--primary)',
+                                    fontSize: 'clamp(0.95rem, 2.5vw, 1rem)'
+                                }}>{donation.weight}</div>
+                                <div style={{ fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)', color: '#aaa' }}>{donation.time}</div>
                             </div>
                         </div>
                     )) : (
-                        <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>No recent donations yet.</p>
+                        <p style={{ textAlign: 'center', color: 'var(--text-secondary)', padding: '20px 0' }}>No recent donations yet.</p>
                     )}
                 </div>
             </div>
