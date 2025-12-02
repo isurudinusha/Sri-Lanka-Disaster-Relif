@@ -78,35 +78,55 @@ const Dashboard = ({ onStartDonating }) => {
                 </button>
             </div>
 
-            {/* Stats Grid */}
-            <div className="responsive-grid responsive-grid-3" style={{ marginBottom: '40px' }}>
-                {stats.map((stat, index) => (
-                    <div key={index} className="card" style={{ textAlign: 'center', padding: 'clamp(1rem, 3vw, 1.875rem)' }}>
-                        <div style={{
-                            fontSize: 'clamp(2rem, 5vw, 3rem)',
-                            marginBottom: '10px',
-                            background: '#f0f9ff',
-                            width: 'min(80px, 20vw)',
-                            height: 'min(80px, 20vw)',
-                            lineHeight: 'min(80px, 20vw)',
-                            borderRadius: '50%',
-                            margin: '0 auto 15px'
-                        }}>
-                            {stat.icon}
+            {/* Stats Card */}
+            <div className="card" style={{ marginBottom: '40px', padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'clamp(1rem, 2.5vw, 1.5rem)',
+                }}>
+                    {stats.map((stat, index) => (
+                        <div key={index} style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 'clamp(1rem, 2.5vw, 1.5rem)',
+                            padding: 'clamp(0.875rem, 2vw, 1.25rem)',
+                            background: 'linear-gradient(135deg, rgba(0,119,182,0.05) 0%, rgba(144,224,239,0.05) 100%)',
+                            borderRadius: '12px',
+                            transition: 'transform 0.2s',
+                        }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.01)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        >
+                            <div style={{
+                                fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+                                background: '#f0f9ff',
+                                width: 'clamp(50px, 12vw, 60px)',
+                                height: 'clamp(50px, 12vw, 60px)',
+                                lineHeight: 'clamp(50px, 12vw, 60px)',
+                                borderRadius: '12px',
+                                textAlign: 'center',
+                                flexShrink: 0
+                            }}>
+                                {stat.icon}
+                            </div>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{
+                                    fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
+                                    color: 'var(--text-secondary)',
+                                    fontWeight: '500',
+                                    marginBottom: '4px'
+                                }}>{stat.label}</div>
+                                <div style={{
+                                    fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+                                    color: stat.color,
+                                    fontWeight: '700',
+                                    wordBreak: 'break-word'
+                                }}>{stat.value}</div>
+                            </div>
                         </div>
-                        <h3 style={{
-                            fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-                            color: stat.color,
-                            marginBottom: '5px',
-                            wordBreak: 'break-word'
-                        }}>{stat.value}</h3>
-                        <p style={{
-                            color: 'var(--text-secondary)',
-                            fontWeight: '500',
-                            fontSize: 'clamp(0.85rem, 2vw, 1rem)'
-                        }}>{stat.label}</p>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
 
             {/* Recent Activity */}
