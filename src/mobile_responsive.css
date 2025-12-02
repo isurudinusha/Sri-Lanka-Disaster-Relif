@@ -1,0 +1,359 @@
+/* Mobile Responsive Utilities and Styles */
+
+/* Breakpoints:
+   - Mobile: max-width: 480px
+   - Tablet: max-width: 768px
+   - Desktop: min-width: 769px
+*/
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Show/Hide utilities */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .tablet-hide {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-hide {
+        display: none;
+    }
+}
+
+/* ============================================
+   HAMBURGER MENU STYLES
+   ============================================ */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-nav.active {
+    transform: translateY(0);
+}
+
+.mobile-nav .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ============================================
+   RESPONSIVE CONTAINERS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE BUTTONS
+   ============================================ */
+
+.btn {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-mobile-full {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   RESPONSIVE CARDS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE GRIDS
+   ============================================ */
+
+.responsive-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.responsive-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.responsive-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+
+    .responsive-grid-2,
+    .responsive-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .responsive-grid-2,
+    .responsive-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   RESPONSIVE TABLES
+   ============================================ */
+
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+    .table-wrapper table {
+        font-size: 0.85rem;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+        padding: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-wrapper table {
+        font-size: 0.8rem;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+        padding: 6px !important;
+        white-space: nowrap;
+    }
+}
+
+/* ============================================
+   RESPONSIVE FORMS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .form-control {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        padding: 14px;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE SPACING
+   ============================================ */
+
+.spacing-mobile-reduce {
+    padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+    .spacing-mobile-reduce {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spacing-mobile-reduce {
+        padding: 20px 15px;
+    }
+}
+
+/* ============================================
+   STACK ON MOBILE
+   ============================================ */
+
+.stack-mobile {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .stack-mobile {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   TOUCH TARGETS
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        -webkit-tap-highlight-color: rgba(0, 119, 182, 0.1);
+    }
+
+    /* Ensure all interactive elements are at least 44x44px */
+    button,
+    a.btn,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
