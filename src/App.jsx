@@ -67,7 +67,7 @@ function App() {
         onMyDonationsClick={() => navigateTo('mydonations')}
         currentPage={currentPage}
       />
-      <main style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}>
+      <main>
         {renderPage()}
       </main>
     </div>
