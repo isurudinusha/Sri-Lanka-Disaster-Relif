@@ -29,36 +29,31 @@ const MyDonations = () => {
     };
 
     return (
-        <div className="container fade-in" style={{ padding: '40px 20px' }}>
-            <div style={{ marginBottom: '40px' }}>
-                <h1 style={{ color: 'var(--primary)', marginBottom: '10px' }}>My Donations</h1>
-                <p style={{ color: 'var(--text-secondary)' }}>View all your donation entries</p>
+        <div className="container fade-in spacing-mobile-reduce">
+            <div style={{ marginBottom: '30px' }}>
+                <h1 style={{ color: 'var(--primary)', marginBottom: '10px', fontSize: 'clamp(1.75rem, 4vw, 2rem)' }}>My Donations</h1>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9rem, 2vw, 1rem)' }}>View all your donation entries</p>
             </div>
 
             {/* Summary Cards */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '20px',
-                marginBottom: '40px'
-            }}>
-                <div className="card" style={{ textAlign: 'center', padding: '20px' }}>
-                    <div style={{ fontSize: '2rem', color: 'var(--primary)', fontWeight: 'bold' }}>
+            <div className="responsive-grid responsive-grid-3" style={{ marginBottom: '30px' }}>
+                <div className="card" style={{ textAlign: 'center', padding: 'clamp(1rem, 3vw, 1.25rem)' }}>
+                    <div style={{ fontSize: 'clamp(1.75rem, 4vw, 2rem)', color: 'var(--primary)', fontWeight: 'bold' }}>
                         {donations.length}
                     </div>
-                    <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Total Donations</div>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Total Donations</div>
                 </div>
-                <div className="card" style={{ textAlign: 'center', padding: '20px' }}>
-                    <div style={{ fontSize: '2rem', color: 'var(--success)', fontWeight: 'bold' }}>
+                <div className="card" style={{ textAlign: 'center', padding: 'clamp(1rem, 3vw, 1.25rem)' }}>
+                    <div style={{ fontSize: 'clamp(1.75rem, 4vw, 2rem)', color: 'var(--success)', fontWeight: 'bold' }}>
                         {getTotalWeight()} kg
                     </div>
-                    <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Total Weight</div>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Total Weight</div>
                 </div>
-                <div className="card" style={{ textAlign: 'center', padding: '20px' }}>
-                    <div style={{ fontSize: '2rem', color: 'var(--secondary)', fontWeight: 'bold' }}>
+                <div className="card" style={{ textAlign: 'center', padding: 'clamp(1rem, 3vw, 1.25rem)' }}>
+                    <div style={{ fontSize: 'clamp(1.75rem, 4vw, 2rem)', color: 'var(--secondary)', fontWeight: 'bold' }}>
                         {getTotalItems()}
                     </div>
-                    <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Total Items</div>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.85rem, 2vw, 0.9rem)' }}>Total Items</div>
                 </div>
             </div>
 
@@ -72,30 +67,48 @@ const MyDonations = () => {
                     <p style={{ color: 'var(--text-secondary)' }}>No donations yet. Start donating to see your entries here!</p>
                 </div>
             ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                     {donations.map((donation, index) => (
                         <div key={index} className="card">
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '15px' }}>
-                                <div>
-                                    <h3 style={{ color: 'var(--text-primary)', marginBottom: '5px' }}>
+                            <div className="stack-mobile" style={{
+                                justifyContent: 'space-between',
+                                alignItems: 'start',
+                                marginBottom: '15px',
+                                gap: '12px'
+                            }}>
+                                <div style={{ flex: '1 1 auto' }}>
+                                    <h3 style={{
+                                        color: 'var(--text-primary)',
+                                        marginBottom: '5px',
+                                        fontSize: 'clamp(1.1rem, 3vw, 1.25rem)',
+                                        wordBreak: 'break-word'
+                                    }}>
                                         {donation.location}
                                     </h3>
-                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                                    <p style={{
+                                        color: 'var(--text-secondary)',
+                                        fontSize: 'clamp(0.85rem, 2vw, 0.9rem)',
+                                        margin: 0
+                                    }}>
                                         By: {donation.donorName}
                                     </p>
                                 </div>
-                                <div style={{ textAlign: 'right' }}>
-                                    <div style={{ fontWeight: 'bold', color: 'var(--primary)', fontSize: '1.2rem' }}>
+                                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                                    <div style={{
+                                        fontWeight: 'bold',
+                                        color: 'var(--primary)',
+                                        fontSize: 'clamp(1.1rem, 3vw, 1.2rem)'
+                                    }}>
                                         {donation.totalWeight} kg
                                     </div>
-                                    <div style={{ fontSize: '0.8rem', color: '#aaa' }}>
+                                    <div style={{ fontSize: 'clamp(0.75rem, 1.8vw, 0.8rem)', color: '#aaa' }}>
                                         {new Date(donation.date).toLocaleDateString()}
                                     </div>
                                 </div>
                             </div>
 
                             {/* Items Table */}
-                            <div style={{ border: '1px solid #eee', borderRadius: '8px', overflow: 'hidden' }}>
+                            <div className="table-wrapper">
                                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                                     <thead style={{ background: '#f8f9fa' }}>
                                         <tr>
