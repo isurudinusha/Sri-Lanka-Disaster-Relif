@@ -31,325 +31,341 @@ const Dashboard = ({ onStartDonating }) => {
         <div style={{
             minHeight: '100vh',
             background: 'linear-gradient(to bottom, #f0f9ff 0%, #ffffff 100%)',
-            padding: '16px',
-            paddingBottom: '32px'
+            padding: 'clamp(16px, 3vw, 40px)',
+            paddingBottom: 'clamp(32px, 5vw, 60px)'
         }}>
-            {/* Header Section */}
             <div style={{
-                textAlign: 'center',
-                marginBottom: '24px',
-                padding: '24px 16px'
+                maxWidth: '1200px',
+                margin: '0 auto'
             }}>
-                <img
-                    src="/logo.png"
-                    alt="Relief Hub"
-                    style={{
-                        width: '80px',
-                        height: '80px',
-                        marginBottom: '16px',
-                        borderRadius: '16px',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                        objectFit: 'cover'
-                    }}
-                />
-                <h1 style={{
-                    fontSize: '24px',
-                    fontWeight: '800',
-                    background: 'linear-gradient(135deg, #0077b6, #90e0ef)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    marginBottom: '8px',
-                    lineHeight: '1.2'
-                }}>
-                    UK to Sri Lanka Relief Hub
-                </h1>
-                <p style={{
-                    fontSize: '14px',
-                    color: '#64748b',
-                    marginBottom: '20px',
-                    lineHeight: '1.5'
-                }}>
-                    Join our mission to send essential aid to Sri Lanka
-                </p>
-                <button
-                    onClick={onStartDonating}
-                    style={{
-                        width: '100%',
-                        padding: '16px',
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        color: 'white',
-                        background: 'linear-gradient(135deg, #0077b6, #00b4d8)',
-                        border: 'none',
-                        borderRadius: '12px',
-                        boxShadow: '0 4px 12px rgba(0,119,182,0.3)',
-                        cursor: 'pointer',
-                        transition: 'transform 0.2s, boxShadow 0.2s'
-                    }}
-                    onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.98)'}
-                    onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                    Start Donating Now
-                </button>
-            </div>
-
-            {/* Stats Card */}
-            <div style={{
-                background: 'white',
-                borderRadius: '16px',
-                padding: '20px',
-                marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
-            }}>
-                <h2 style={{
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    color: '#1e293b',
-                    marginBottom: '16px',
-                    textAlign: 'center'
-                }}>
-                    Our Impact
-                </h2>
-
-                {/* Weight */}
+                {/* Header Section */}
                 <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '16px',
-                    padding: '16px',
-                    background: 'linear-gradient(135deg, rgba(0,119,182,0.05), rgba(0,180,216,0.05))',
-                    borderRadius: '12px',
-                    marginBottom: '12px'
+                    textAlign: 'center',
+                    marginBottom: 'clamp(24px, 4vw, 40px)',
+                    padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 20px)'
                 }}>
-                    <div style={{
-                        fontSize: '32px',
-                        width: '56px',
-                        height: '56px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: '#e0f2fe',
-                        borderRadius: '12px',
-                        flexShrink: 0
+                    <img
+                        src="/logo.png"
+                        alt="Relief Hub"
+                        style={{
+                            width: 'clamp(80px, 15vw, 120px)',
+                            height: 'clamp(80px, 15vw, 120px)',
+                            marginBottom: '16px',
+                            borderRadius: '16px',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                            objectFit: 'cover'
+                        }}
+                    />
+                    <h1 style={{
+                        fontSize: 'clamp(24px, 4vw, 42px)',
+                        fontWeight: '800',
+                        background: 'linear-gradient(135deg, #0077b6, #90e0ef)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        marginBottom: '8px',
+                        lineHeight: '1.2'
                     }}>
-                        📦
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <div style={{
-                            fontSize: '12px',
-                            color: '#64748b',
-                            fontWeight: '500',
-                            marginBottom: '2px'
-                        }}>
-                            Total Weight Collected
-                        </div>
-                        <div style={{
-                            fontSize: '28px',
-                            fontWeight: '800',
-                            color: '#0077b6',
-                            lineHeight: '1'
-                        }}>
-                            {stats.totalWeight} <span style={{ fontSize: '18px', fontWeight: '600' }}>kg</span>
-                        </div>
-                    </div>
+                        UK to Sri Lanka Relief Hub
+                    </h1>
+                    <p style={{
+                        fontSize: 'clamp(14px, 2vw, 18px)',
+                        color: '#64748b',
+                        marginBottom: '20px',
+                        lineHeight: '1.5',
+                        maxWidth: '600px',
+                        margin: '0 auto 20px'
+                    }}>
+                        Join our mission to send essential aid to Sri Lanka
+                    </p>
+                    <button
+                        onClick={onStartDonating}
+                        style={{
+                            width: 'clamp(200px, 100%, 400px)',
+                            padding: '16px clamp(24px, 4vw, 32px)',
+                            fontSize: 'clamp(15px, 2vw, 17px)',
+                            fontWeight: '600',
+                            color: 'white',
+                            background: 'linear-gradient(135deg, #0077b6, #00b4d8)',
+                            border: 'none',
+                            borderRadius: '12px',
+                            boxShadow: '0 4px 12px rgba(0,119,182,0.3)',
+                            cursor: 'pointer',
+                            transition: 'transform 0.2s, boxShadow 0.2s'
+                        }}
+                        onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.98)'}
+                        onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                    >
+                        Start Donating Now
+                    </button>
                 </div>
 
-                {/* Items */}
+                {/* Stats Card */}
                 <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '16px',
-                    padding: '16px',
-                    background: 'linear-gradient(135deg, rgba(34,197,94,0.05), rgba(74,222,128,0.05))',
-                    borderRadius: '12px',
-                    marginBottom: '12px'
-                }}>
-                    <div style={{
-                        fontSize: '32px',
-                        width: '56px',
-                        height: '56px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: '#dcfce7',
-                        borderRadius: '12px',
-                        flexShrink: 0
-                    }}>
-                        🎁
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <div style={{
-                            fontSize: '12px',
-                            color: '#64748b',
-                            fontWeight: '500',
-                            marginBottom: '2px'
-                        }}>
-                            Total Items
-                        </div>
-                        <div style={{
-                            fontSize: '28px',
-                            fontWeight: '800',
-                            color: '#22c55e',
-                            lineHeight: '1'
-                        }}>
-                            {stats.totalItems}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Donations Count */}
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '16px',
-                    padding: '16px',
-                    background: 'linear-gradient(135deg, rgba(144,224,239,0.08), rgba(144,224,239,0.08))',
-                    borderRadius: '12px'
-                }}>
-                    <div style={{
-                        fontSize: '32px',
-                        width: '56px',
-                        height: '56px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: '#f0f9ff',
-                        borderRadius: '12px',
-                        flexShrink: 0
-                    }}>
-                        👥
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <div style={{
-                            fontSize: '12px',
-                            color: '#64748b',
-                            fontWeight: '500',
-                            marginBottom: '2px'
-                        }}>
-                            Donations Count
-                        </div>
-                        <div style={{
-                            fontSize: '28px',
-                            fontWeight: '800',
-                            color: '#0ea5e9',
-                            lineHeight: '1'
-                        }}>
-                            {stats.donationsCount}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Recent Donations */}
-            <div style={{
-                background: 'white',
-                borderRadius: '16px',
-                padding: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
-            }}>
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '16px'
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: 'clamp(20px, 3vw, 32px)',
+                    marginBottom: 'clamp(20px, 3vw, 32px)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
                 }}>
                     <h2 style={{
-                        fontSize: '16px',
+                        fontSize: 'clamp(16px, 2.5vw, 20px)',
                         fontWeight: '700',
                         color: '#1e293b',
-                        margin: 0
+                        marginBottom: 'clamp(16px, 3vw, 24px)',
+                        textAlign: 'center'
                     }}>
-                        Recent Contributions
+                        Our Impact
                     </h2>
-                    <span style={{
-                        fontSize: '12px',
-                        color: '#22c55e',
-                        fontWeight: '600',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px'
-                    }}>
-                        <span style={{ fontSize: '8px' }}>●</span> Live
-                    </span>
-                </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    {recentDonations.length > 0 ? recentDonations.map((donation, index) => (
-                        <div key={index} style={{
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: 'clamp(12px, 2vw, 16px)'
+                    }}>
+                        {/* Weight */}
+                        <div style={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '12px',
-                            padding: '12px',
-                            background: '#f8fafc',
-                            borderRadius: '12px',
-                            border: '1px solid #f1f5f9'
+                            gap: '16px',
+                            padding: 'clamp(16px, 2.5vw, 20px)',
+                            background: 'linear-gradient(135deg, rgba(0,119,182,0.05), rgba(0,180,216,0.05))',
+                            borderRadius: '12px'
                         }}>
                             <div style={{
-                                width: '40px',
-                                height: '40px',
-                                background: 'linear-gradient(135deg, #e0f2fe, #bae6fd)',
-                                borderRadius: '10px',
+                                fontSize: 'clamp(28px, 5vw, 36px)',
+                                width: 'clamp(56px, 10vw, 64px)',
+                                height: 'clamp(56px, 10vw, 64px)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: '20px',
+                                background: '#e0f2fe',
+                                borderRadius: '12px',
                                 flexShrink: 0
                             }}>
-                                📍
+                                📦
                             </div>
-                            <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ flex: 1 }}>
                                 <div style={{
-                                    fontSize: '14px',
-                                    fontWeight: '600',
-                                    color: '#1e293b',
-                                    marginBottom: '2px',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    whiteSpace: 'nowrap'
-                                }}>
-                                    {donation.location}
-                                </div>
-                                <div style={{
-                                    fontSize: '12px',
+                                    fontSize: 'clamp(12px, 1.8vw, 14px)',
                                     color: '#64748b',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    whiteSpace: 'nowrap'
+                                    fontWeight: '500',
+                                    marginBottom: '2px'
                                 }}>
-                                    {donation.items}
-                                </div>
-                            </div>
-                            <div style={{
-                                textAlign: 'right',
-                                flexShrink: 0
-                            }}>
-                                <div style={{
-                                    fontSize: '14px',
-                                    fontWeight: '700',
-                                    color: '#0077b6'
-                                }}>
-                                    {donation.weight} kg
+                                    Total Weight Collected
                                 </div>
                                 <div style={{
-                                    fontSize: '11px',
-                                    color: '#94a3b8'
+                                    fontSize: 'clamp(24px, 4vw, 32px)',
+                                    fontWeight: '800',
+                                    color: '#0077b6',
+                                    lineHeight: '1'
                                 }}>
-                                    {donation.time}
+                                    {stats.totalWeight} <span style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', fontWeight: '600' }}>kg</span>
                                 </div>
                             </div>
                         </div>
-                    )) : (
-                        <p style={{
-                            textAlign: 'center',
-                            color: '#94a3b8',
-                            fontSize: '14px',
-                            padding: '20px 0',
+
+                        {/* Items */}
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '16px',
+                            padding: 'clamp(16px, 2.5vw, 20px)',
+                            background: 'linear-gradient(135deg, rgba(34,197,94,0.05), rgba(74,222,128,0.05))',
+                            borderRadius: '12px'
+                        }}>
+                            <div style={{
+                                fontSize: 'clamp(28px, 5vw, 36px)',
+                                width: 'clamp(56px, 10vw, 64px)',
+                                height: 'clamp(56px, 10vw, 64px)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: '#dcfce7',
+                                borderRadius: '12px',
+                                flexShrink: 0
+                            }}>
+                                🎁
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <div style={{
+                                    fontSize: 'clamp(12px, 1.8vw, 14px)',
+                                    color: '#64748b',
+                                    fontWeight: '500',
+                                    marginBottom: '2px'
+                                }}>
+                                    Total Items
+                                </div>
+                                <div style={{
+                                    fontSize: 'clamp(24px, 4vw, 32px)',
+                                    fontWeight: '800',
+                                    color: '#22c55e',
+                                    lineHeight: '1'
+                                }}>
+                                    {stats.totalItems}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Donations Count */}
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '16px',
+                            padding: 'clamp(16px, 2.5vw, 20px)',
+                            background: 'linear-gradient(135deg, rgba(144,224,239,0.08), rgba(144,224,239,0.08))',
+                            borderRadius: '12px'
+                        }}>
+                            <div style={{
+                                fontSize: 'clamp(28px, 5vw, 36px)',
+                                width: 'clamp(56px, 10vw, 64px)',
+                                height: 'clamp(56px, 10vw, 64px)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: '#f0f9ff',
+                                borderRadius: '12px',
+                                flexShrink: 0
+                            }}>
+                                👥
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <div style={{
+                                    fontSize: 'clamp(12px, 1.8vw, 14px)',
+                                    color: '#64748b',
+                                    fontWeight: '500',
+                                    marginBottom: '2px'
+                                }}>
+                                    Donations Count
+                                </div>
+                                <div style={{
+                                    fontSize: 'clamp(24px, 4vw, 32px)',
+                                    fontWeight: '800',
+                                    color: '#0ea5e9',
+                                    lineHeight: '1'
+                                }}>
+                                    {stats.donationsCount}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Recent Donations */}
+                <div style={{
+                    background: 'white',
+                    borderRadius: '16px',
+                    padding: 'clamp(20px, 3vw, 32px)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 'clamp(16px, 2.5vw, 24px)'
+                    }}>
+                        <h2 style={{
+                            fontSize: 'clamp(16px, 2.5vw, 20px)',
+                            fontWeight: '700',
+                            color: '#1e293b',
                             margin: 0
                         }}>
-                            No recent donations yet.
-                        </p>
-                    )}
+                            Recent Contributions
+                        </h2>
+                        <span style={{
+                            fontSize: 'clamp(11px, 1.8vw, 13px)',
+                            color: '#22c55e',
+                            fontWeight: '600',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                        }}>
+                            <span style={{ fontSize: '8px' }}>●</span> Live
+                        </span>
+                    </div>
+
+                    <div style={{
+                        display: 'grid',
+                        gap: 'clamp(12px, 2vw, 16px)',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'
+                    }}>
+                        {recentDonations.length > 0 ? recentDonations.map((donation, index) => (
+                            <div key={index} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '12px',
+                                padding: 'clamp(12px, 2vw, 16px)',
+                                background: '#f8fafc',
+                                borderRadius: '12px',
+                                border: '1px solid #f1f5f9'
+                            }}>
+                                <div style={{
+                                    width: 'clamp(40px, 8vw, 48px)',
+                                    height: 'clamp(40px, 8vw, 48px)',
+                                    background: 'linear-gradient(135deg, #e0f2fe, #bae6fd)',
+                                    borderRadius: '10px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: 'clamp(18px, 3vw, 22px)',
+                                    flexShrink: 0
+                                }}>
+                                    📍
+                                </div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{
+                                        fontSize: 'clamp(13px, 2vw, 15px)',
+                                        fontWeight: '600',
+                                        color: '#1e293b',
+                                        marginBottom: '2px',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap'
+                                    }}>
+                                        {donation.location}
+                                    </div>
+                                    <div style={{
+                                        fontSize: 'clamp(11px, 1.8vw, 13px)',
+                                        color: '#64748b',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'nowrap'
+                                    }}>
+                                        {donation.items}
+                                    </div>
+                                </div>
+                                <div style={{
+                                    textAlign: 'right',
+                                    flexShrink: 0
+                                }}>
+                                    <div style={{
+                                        fontSize: 'clamp(13px, 2vw, 15px)',
+                                        fontWeight: '700',
+                                        color: '#0077b6'
+                                    }}>
+                                        {donation.weight} kg
+                                    </div>
+                                    <div style={{
+                                        fontSize: 'clamp(10px, 1.5vw, 12px)',
+                                        color: '#94a3b8'
+                                    }}>
+                                        {donation.time}
+                                    </div>
+                                </div>
+                            </div>
+                        )) : (
+                            <p style={{
+                                textAlign: 'center',
+                                color: '#94a3b8',
+                                fontSize: 'clamp(13px, 2vw, 15px)',
+                                padding: '20px 0',
+                                margin: 0,
+                                gridColumn: '1 / -1'
+                            }}>
+                                No recent donations yet.
+                            </p>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
